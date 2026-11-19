@@ -176,7 +176,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <body>
 <a class="skip" href="#join">Skip to sign-up</a>
 <div id="dc-root"></div>
-<noscript><p style="padding: 40px; font-size: 18px">NIA CLUB needs JavaScript to show this page. Email hello@[niaclub.co.uk] to join.</p></noscript>
+<noscript><p style="padding: 40px; font-size: 18px">NIA CLUB needs JavaScript to show this page. Email hello@niaclub.net to join.</p></noscript>
 
 <template id="dc-tpl">
 <div id="top" style="min-height: 100vh; display: flex; flex-direction: column">
@@ -188,7 +188,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <a href="#points" style="text-decoration: none">Points</a>
 <a href="#glossary" style="text-decoration: none">Glossary</a>
 <a href="#benefits" style="text-decoration: none">Founding members</a>
-<a href="partners.html" style="text-decoration: none">Become a partner</a>
+<a href="partners.html" style="display: none; text-decoration: none">Become a partner</a>
 </nav>
 <a href="#top" aria-label="NIA home" class="logo wm" style="font-size: 30px; justify-self: center"><span class="lm" aria-hidden="true">N<span class="li">I<span class="ld"></span></span>A</span></a>
 <a href="#join" class="navd" style="justify-self: end; text-decoration: none; border: 1px solid #1C2321; border-radius: 999px; padding: 10px 22px; min-height: 44px; box-sizing: border-box; display: inline-flex; align-items: center; font-size: 16px; font-weight: 500">Join free</a>
@@ -203,7 +203,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <a href="#points" onClick="{{closeMenu}}" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0; border-bottom: 1px solid #ECEAE3">Points and samples</a>
 <a href="#glossary" onClick="{{closeMenu}}" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0; border-bottom: 1px solid #ECEAE3">Glossary</a>
 <a href="#benefits" onClick="{{closeMenu}}" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0; border-bottom: 1px solid #ECEAE3">Founding members</a>
-<a href="partners.html" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0">Become a partner</a>
+<a href="partners.html" style="display: none; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0">Become a partner</a>
 <a href="#join" onClick="{{closeMenu}}" style="margin-top: 16px; background: #B8410E; color: #FFFFFF; text-decoration: none; border-radius: 999px; min-height: 52px; display: flex; align-items: center; justify-content: center; font-size: 17px; font-weight: 500">Join free</a>
 </nav>
 </sc-if>
@@ -240,7 +240,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 </svg>
 <div class="herotop" style="position: relative; padding: 120px 32px 56px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px">
 <h1 class="d h1" style="margin: 0; font-size: 88px; max-width: 11ch; color: #4A524C">Get rewarded for your longevity routine</h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #1C2321; max-width: 48ch">One membership across longevity products and services. <br>Get the member price on your first three visits to each place. Every visit earns points to spend across the network.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #1C2321; max-width: 48ch">Get the member prices, free samples, earn points to spend across the network of NIA Club longevity.</p>
 
 <sc-if value="{{stepForm}}">
 <form onSubmit="{{submitJoin}}" aria-label="Join NIA CLUB" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; max-width: 640px">
@@ -304,7 +304,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <img class="ph" src="images/bubbles.jpg" alt=""><span class="ph shade" aria-hidden="true"></span>
 <div class="rh"><span>Doctor-led clinics</span><span>02</span></div>
 <span class="mchip"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"></circle><path d="M5 21a7 7 0 0 1 14 0"></path></svg>Consultation · follow-up</span>
-<h3 class="serif" style="margin: auto 0 0; font-size: 34px; line-height: 1.04">A plan from a doctor, built on your results.</h3>
+<h3 class="serif" style="margin: auto 0 0; font-size: 34px; line-height: 1.04">A plan built on your results.</h3>
 <p class="cbody" style="margin-top: 12px">Consultations at partner clinics, with <strong>NIA keeping track</strong> of what comes next.</p>
 </article>
 
@@ -329,7 +329,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <div class="rh"><span>Skin</span><span>05</span></div>
 <span class="mchip"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg>Skin check</span>
 <h3 class="serif" style="margin: auto 0 0; font-size: 34px; line-height: 1.04">Doctor-led skin clinics.</h3>
-<p class="cbody" style="margin-top: 12px">Skin checks and treatments, and <strong>every practitioner will be checked</strong> before they join.</p>
+<p class="cbody" style="margin-top: 12px">Skin checks and stem cell therapies by&nbsp;<strong>qualified practitioners.</strong></p>
 </article>
 
 <article class="ncard nlight" style="background: radial-gradient(60% 50% at 80% 90%, rgba(143,216,180,0.55) 0%, rgba(143,216,180,0) 70%), #EEF2EC">
@@ -348,9 +348,17 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <p class="cbody" style="margin-top: 12px">Olive oil, colourful eating and fibre, with <strong>every claim linked to its source</strong> in our glossary.</p>
 </article>
 
+<article class="ncard nlight" style="background: radial-gradient(60% 55% at 85% 95%, rgba(228,232,122,0.45) 0%, rgba(228,232,122,0) 70%), radial-gradient(50% 45% at 10% 10%, rgba(143,216,180,0.35) 0%, rgba(143,216,180,0) 70%), #F2F1E7">
+<svg class="nflower" aria-hidden="true" style="width: 240px; height: 240px; right: -40px; top: -20px; opacity: 0.5" viewBox="0 0 360 360" fill="none" stroke="#4F6B2E" stroke-width="1.3" stroke-linecap="round"><path d="M40 330C120 250 190 170 330 40"></path><g><ellipse cx="96" cy="262" rx="30" ry="9" transform="rotate(-70 96 262)"></ellipse><ellipse cx="122" cy="262" rx="30" ry="9" transform="rotate(10 122 262)"></ellipse><ellipse cx="150" cy="206" rx="32" ry="10" transform="rotate(-75 150 206)"></ellipse><ellipse cx="176" cy="206" rx="32" ry="10" transform="rotate(5 176 206)"></ellipse><ellipse cx="206" cy="150" rx="32" ry="10" transform="rotate(-75 206 150)"></ellipse><ellipse cx="232" cy="152" rx="32" ry="10" transform="rotate(0 232 152)"></ellipse><ellipse cx="262" cy="96" rx="30" ry="9" transform="rotate(-78 262 96)"></ellipse><ellipse cx="288" cy="98" rx="30" ry="9" transform="rotate(-5 288 98)"></ellipse></g><path d="M162 196c6 16 4 30-2 40"></path><ellipse cx="158" cy="250" rx="11" ry="14"></ellipse><path d="M218 140c8 14 8 28 2 38"></path><ellipse cx="219" cy="192" rx="10" ry="13"></ellipse></svg>
+<div class="rh"><span>Member prices</span><span>08</span></div>
+<span class="mchip"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"></path><circle cx="7.5" cy="7.5" r="1.2"></circle></svg>Vetted brands</span>
+<h3 class="serif" style="margin: auto 0 0; font-size: 34px; line-height: 1.04">Supplements, oils and herbal teas, for less.</h3>
+<p class="cbody" style="margin-top: 12px">Brands we've vetted, <strong>at member prices</strong>, with the research for each linked in our glossary.</p>
+</article>
+
 <article class="ncard" style="background: #24343A">
 <img class="ph" src="images/meditate.jpg" alt=""><span class="ph shade" aria-hidden="true"></span>
-<div class="rh"><span>And more</span><span>08</span></div>
+<div class="rh"><span>And more</span><span>09</span></div>
 <span class="mchip"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"></path><path d="M3 13l9 5 9-5"></path></svg>All in one record</span>
 <h3 class="serif" style="margin: auto 0 0; font-size: 34px; line-height: 1.04">Strength, sleep and breathwork. One membership.</h3>
 <a href="#join" class="njoin">Join free</a>
@@ -648,12 +656,12 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <a href="#top" style="color: #FFFFFF; text-decoration: none">For members</a>
 <a href="partners.html" style="color: #FFFFFF; text-decoration: none">For partners</a>
 <a href="#privacy" style="color: #FFFFFF; text-decoration: none">Privacy</a>
-<a href="mailto:hello@[niaclub.co.uk]" style="color: #FFFFFF; text-decoration: none">hello@[niaclub.co.uk]</a>
+<a href="mailto:hello@niaclub.net" style="color: #FFFFFF; text-decoration: none">hello@niaclub.net</a>
 </div>
 </nav>
 </div>
 <div style="border-top: 1px solid rgba(255,255,255,0.14); padding-top: 28px; display: flex; flex-direction: column; gap: 12px; font-size: 13px; line-height: 1.6; color: #A3B2AA; max-width: 920px">
-<p id="privacy" style="margin: 0"><strong style="color: #DCE3DE; font-weight: 500">Privacy.</strong> We use your name, email and answers only to run NIA CLUB and to tell you when it opens near you. Form entries reach us by email through our form provider, Web3Forms. We never sell your details, and you can ask us to delete them at any time by emailing hello@[niaclub.co.uk].</p>
+<p id="privacy" style="margin: 0"><strong style="color: #DCE3DE; font-weight: 500">Privacy.</strong> We use your name, email and answers only to run NIA CLUB and to tell you when it opens near you. Form entries reach us by email through our form provider, Web3Forms. We never sell your details, and you can ask us to delete them at any time by emailing hello@niaclub.net.</p>
 <p style="margin: 0"><strong style="color: #DCE3DE; font-weight: 500">Not medical advice.</strong> Content on this page is for general education. Prices, points, places and app screens shown are illustrative examples: NIA CLUB has no partner venues yet.</p>
 <p style="margin: 0">NIA CLUB is a trading name of [Company name] Ltd, registered in England and Wales, company number [00000000]. Registered office: [address]. ICO registration number: [number].</p>
 <p style="margin: 0">© 2026 [Company name] Ltd. All rights reserved.</p>
