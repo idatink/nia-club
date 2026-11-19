@@ -94,11 +94,37 @@ button{font:inherit;cursor:pointer}
 .gchip[aria-pressed="true"]{background:#FFFFFF;color:#1C2321;box-shadow:0 4px 12px -6px rgba(28,35,33,0.35)}
 @media (max-width:760px){.gevwrap{width:100%}.gevid{width:100%}.gchip{flex:1 1 auto;justify-content:center;padding:6px 8px;gap:6px;font-size:13px}}
 .gsearch{font:inherit;font-size:16px;width:100%;box-sizing:border-box;min-height:52px;padding:12px 18px 12px 46px;border:1px solid #8F938B;border-radius:999px;background:#FFFFFF;color:#1C2321}
+.frep{display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;list-style:none}
+.frep li{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,0.72);border-radius:999px;padding:9px 15px;font-size:15px;font-weight:500}
+.fopts{display:flex;flex-wrap:wrap;gap:8px}
+.fgrp{display:flex;flex-direction:column;gap:10px}
+.fglbl{margin:4px 0 0;font-size:15px;font-weight:500;color:#1C2321}
+.fage{display:flex;align-items:flex-end;justify-content:space-between;gap:12px}
+.fagev{font-family:Italiana,"Schibsted Grotesk",serif;font-size:44px;line-height:0.9;-webkit-text-stroke:0.016em currentColor}
+.frange{-webkit-appearance:none;appearance:none;width:100%;height:44px;margin:0;background:transparent;cursor:pointer}
+.frange::-webkit-slider-runnable-track{height:6px;border-radius:3px;background:linear-gradient(90deg,#8FD8B4,#1AA7B8)}
+.frange::-webkit-slider-thumb{-webkit-appearance:none;width:28px;height:28px;margin-top:-11px;border-radius:50%;background:#FFFFFF;border:2px solid #1C2321;box-shadow:0 4px 10px -4px rgba(28,35,33,0.45)}
+.frange::-moz-range-track{height:6px;border-radius:3px;background:linear-gradient(90deg,#8FD8B4,#1AA7B8)}
+.frange::-moz-range-thumb{width:24px;height:24px;border-radius:50%;background:#FFFFFF;border:2px solid #1C2321}
+.frange:focus-visible{outline:2px solid #1C2321;outline-offset:4px;border-radius:6px}
+.fscale{display:flex;justify-content:space-between;margin-top:-6px;font-size:12px;color:#4A524C}
+.fopt{display:inline-flex;align-items:center;gap:10px;min-height:48px;padding:10px 18px 10px 14px;border-radius:999px;border:1px solid rgba(28,35,33,0.16);background:#F7F6F2;color:#1C2321;font-size:15px;font-weight:500;text-align:left;transition:background .2s ease,border-color .2s ease}
+.fopt:hover{border-color:rgba(28,35,33,0.45)}
+.fopt .fck{width:18px;height:18px;border-radius:50%;border:1.5px solid rgba(28,35,33,0.35);box-sizing:border-box;flex:none}
+.fopt[aria-pressed="true"]{background:#1C2321;border-color:#1C2321;color:#FFFFFF}
+.fopt[aria-pressed="true"] .fck{border-color:#FFFFFF;background:#FFFFFF;box-shadow:inset 0 0 0 4px #1C2321}
+.fnext{background:#B8410E;color:#FFFFFF;border:0;border-radius:999px;min-height:52px;padding:0 28px;font-size:17px;font-weight:500}
+.fnext:hover{background:#9E370B}
+.fback{background:transparent;border:0;min-height:44px;padding:0;font-size:15px;font-weight:500;color:#1C2321;text-decoration:underline;text-underline-offset:4px}
+.fpick{background:#EEF2EC;border-radius:999px;padding:6px 12px;font-size:14px;font-weight:500}
+label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-items:flex-start;font-size:14px;line-height:1.45;color:#3A413D;padding:4px 2px}
+.fconsent input{width:20px;height:20px;margin:1px 0 0;accent-color:#1C2321;flex:none}
+@media (max-width:760px){.fin{padding:64px 20px !important}.fcard{padding:24px 20px !important}.fwrap{border-radius:28px !important}.fopt{font-size:14px;padding:9px 14px 9px 12px}}
 .benefits-in>div{min-width:0}
 .bcards{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:560px}
 .bcard{display:flex;flex-direction:column;gap:6px;background:rgba(255,255,255,0.72);border-radius:20px;padding:18px 18px 20px;box-sizing:border-box}
 .bcard strong{font-size:17px;font-weight:500;letter-spacing:-0.01em}
-.bcard .bt{font-size:15px;line-height:1.45;color:#3A413D}
+.bcard .bt{font-size:16px;line-height:1.45;color:#3A413D}
 .bicon{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
 @media (max-width:760px){.bcards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;margin:0 -22px;padding:0 22px 6px;max-width:none}.bcards::-webkit-scrollbar{display:none}.bcard{flex:0 0 210px;scroll-snap-align:start}}
 .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
@@ -121,6 +147,7 @@ button{font:inherit;cursor:pointer}
 <header class="pad hdr" style="position: relative; padding: 20px 40px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px">
 <nav class="navd" aria-label="Main" style="display: flex; gap: 26px; flex-wrap: wrap; font-size: 16px">
 <a href="#companion" style="text-decoration: none">Meet NIA</a>
+<a href="#finder" style="text-decoration: none">Your focus</a>
 <a href="#points" style="text-decoration: none">Points</a>
 <a href="#glossary" style="text-decoration: none">Glossary</a>
 <a href="#benefits" style="text-decoration: none">Founding members</a>
@@ -134,6 +161,7 @@ button{font:inherit;cursor:pointer}
 <sc-if value="{{menuOpen}}">
 <nav aria-label="Menu" style="position: absolute; left: 12px; right: 12px; top: 76px; z-index: 40; background: #FFFFFF; border-radius: 24px; box-shadow: 0 24px 48px -24px rgba(28,35,33,0.45); padding: 8px 24px 24px; display: flex; flex-direction: column">
 <a href="#companion" onClick="{{closeMenu}}" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0; border-bottom: 1px solid #ECEAE3">Meet NIA</a>
+<a href="#finder" onClick="{{closeMenu}}" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0; border-bottom: 1px solid #ECEAE3">Find your focus</a>
 <a href="#points" onClick="{{closeMenu}}" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0; border-bottom: 1px solid #ECEAE3">Points and samples</a>
 <a href="#glossary" onClick="{{closeMenu}}" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0; border-bottom: 1px solid #ECEAE3">Glossary</a>
 <a href="#benefits" onClick="{{closeMenu}}" style="display: block; text-decoration: none; font-size: 22px; letter-spacing: -0.01em; padding: 14px 0">Founding members</a>
@@ -302,7 +330,7 @@ button{font:inherit;cursor:pointer}
 <div class="phonewrap" style="flex: 1 1 460px; position: relative; aspect-ratio: 1 / 1.05; border-radius: 28px; overflow: hidden; background: #E6ECE8; display: flex; align-items: center; justify-content: center">
 <img src="images/meditate.jpg" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
 <div role="img" aria-label="Preview: asking NIA where to try infrared therapy on Friday or Saturday, and seeing nearby places with free slots to book" style="position: relative; z-index: 1; width: 310px; max-width: 80%; aspect-ratio: 9 / 17; background: #FFFFFF; border-radius: 36px; box-shadow: 0 30px 60px -36px rgba(28,35,33,0.55); padding: 22px 14px 16px; box-sizing: border-box; display: flex; flex-direction: column; gap: 10px; overflow: hidden">
-<div style="display: flex; align-items: center; gap: 10px; padding: 0 4px"><span aria-hidden="true" style="width: 30px; height: 30px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #8FD8B4, #1AA7B8)"></span><span style="font-size: 15px; font-weight: 600">NIA</span></div>
+<div style="display: flex; align-items: center; gap: 10px; padding: 0 4px"><svg aria-hidden="true" width="30" height="30" viewBox="0 0 64 64" style="flex: none"><rect width="64" height="64" rx="14" fill="#16201B"></rect><g fill="none" stroke="#FFFFFF" stroke-width="2.4"><circle cx="32" cy="32" r="13"></circle><circle cx="40" cy="32" r="13"></circle><circle cx="36" cy="39" r="13"></circle><circle cx="28" cy="39" r="13"></circle><circle cx="24" cy="32" r="13"></circle><circle cx="28" cy="25" r="13"></circle><circle cx="36" cy="25" r="13"></circle></g></svg><span class="logo" style="font-size: 16px"><span class="lm">N<span class="li">I<span class="ld"></span></span>A</span></span></div>
 <p style="margin: 0; align-self: flex-end; max-width: 86%; background: #1C2321; color: #FFFFFF; border-radius: 18px 18px 6px 18px; padding: 10px 13px; font-size: 13px; line-height: 1.45">Hey NIA, I want to try infrared therapy. Where can I go on Friday 5–7 or Saturday 6–10?</p>
 <p style="margin: 0; max-width: 86%; background: #F1F4F1; border-radius: 18px 18px 18px 6px; padding: 10px 13px; font-size: 13px; line-height: 1.45">Three places near you have space. Your first three visits at each are at the member price:</p>
 <div style="border: 1px solid #ECEAE3; border-radius: 16px; padding: 11px 12px; display: flex; flex-direction: column; gap: 8px"><div style="display: flex; flex-direction: column; gap: 2px"><span style="font-size: 13px; font-weight: 600">Infrared sauna studio</span><span style="font-size: 12px; color: #4A524C">Amersham · 1.2 miles</span></div><div class="num" style="display: flex; gap: 5px; flex-wrap: wrap"><span style="background: #1C2321; color: #FFFFFF; border-radius: 999px; padding: 5px 10px; font-size: 12px">Fri 5:30</span><span style="background: #F1EFE9; border-radius: 999px; padding: 5px 10px; font-size: 12px">Fri 6:15</span><span style="background: #F1EFE9; border-radius: 999px; padding: 5px 10px; font-size: 12px">Sat 8:00</span></div></div>
@@ -311,6 +339,77 @@ button{font:inherit;cursor:pointer}
 <span style="margin-top: auto; background: #1C2321; color: #FFFFFF; border-radius: 999px; padding: 11px 0; text-align: center; font-size: 14px; font-weight: 500">Book and pay · £38</span>
 </div>
 <span class="lbl" style="position: absolute; left: 16px; top: 16px; background: rgba(255,255,255,0.92); border-radius: 999px; padding: 5px 10px; font-size: 11px; color: #4A524C">Coming with the membership</span>
+</div>
+</div>
+</section>
+
+<section id="finder" class="pad" style="padding: 40px 24px 0">
+<div class="fwrap" style="position: relative; max-width: 1392px; margin: 0 auto; border-radius: 36px; overflow: hidden; background: radial-gradient(50% 60% at 8% 12%, rgba(143,216,180,0.6) 0%, rgba(143,216,180,0) 70%), radial-gradient(50% 60% at 96% 92%, rgba(26,167,184,0.32) 0%, rgba(26,167,184,0) 70%), radial-gradient(40% 50% at 70% 0%, rgba(249,220,122,0.35) 0%, rgba(249,220,122,0) 70%), #EEF2EC">
+<div class="fin" style="position: relative; max-width: 1240px; margin: 0 auto; padding: 110px 40px; display: flex; flex-wrap: wrap; gap: 48px 80px; align-items: center">
+<div style="flex: 1 1 400px; min-width: 0; display: flex; flex-direction: column; gap: 22px">
+<h2 class="d h2" style="margin: 0; font-size: 72px; max-width: 11ch">Find your focus</h2>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #3A413D; max-width: 44ch">Three quick steps: a little about you, what you'd like to improve and what you're curious about. Then join free, and we'll send you a starter report made around your answers.</p>
+<div style="display: flex; flex-direction: column; gap: 10px">
+<span class="lbl" style="font-size: 12px; color: #4A524C">In your report</span>
+<ul class="frep">
+<li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2321" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4.4 0-8-3.6-8-8 0-3.5 2.3-6.5 5.5-7.6C9 8 10.3 9.5 12 9.5s3-1.5 2.5-4.1C17.7 6.5 20 9.5 20 13c0 4.4-3.6 8-8 8z"></path><path d="M12 9.5V3"></path></svg>Nutrition</li>
+<li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2321" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"></path></svg>Sleep</li>
+<li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2321" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3c-2.2 0-4 1.8-4 4.5 0 2.4 1 4 1.6 6.5.6 2.6 1 7 2.9 7 1.6 0 1.6-4.5 4.5-4.5s2.9 4.5 4.5 4.5c1.9 0 2.3-4.4 2.9-7 .6-2.5 1.6-4.1 1.6-6.5C21 4.8 19.2 3 17 3c-2 0-3 1-5 1S9 3 7 3z"></path></svg>Dental hygiene</li>
+<li><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1C2321" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6M10 3v6.5L4.8 18.2A2 2 0 0 0 6.5 21h11a2 2 0 0 0 1.7-2.8L14 9.5V3"></path><path d="M7.5 15h9"></path></svg>Clinical testing</li>
+</ul>
+</div>
+</div>
+<div class="fcard" aria-live="polite" style="flex: 1 1 440px; max-width: 540px; min-width: 0; background: #FFFFFF; border-radius: 28px; padding: 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -40px rgba(28,35,33,0.45)">
+<sc-if value="{{quizAsking}}">
+<div aria-hidden="true" style="display: flex; gap: 6px"><span style="{{quizBar1}}"></span><span style="{{quizBar2}}"></span><span style="{{quizBar3}}"></span></div>
+<p class="lbl" style="margin: 0; font-size: 12px; color: #4A524C">{{quizStepLabel}}</p>
+<h3 id="quiz-q" class="serif" style="margin: 0; font-size: 34px; line-height: 1.08">{{quizQuestion}}</h3>
+<p style="margin: -8px 0 0; font-size: 15px; color: #4A524C">{{quizHint}}</p>
+<sc-for list="{{quizGroups}}" as="gq">
+<div class="fgrp" role="group" aria-label="{{gq.aria}}">
+<sc-if value="{{gq.isChoice}}"><sc-if value="{{gq.hasLabel}}"><p class="fglbl">{{gq.label}}</p></sc-if></sc-if>
+<sc-if value="{{gq.isSlider}}"><div class="fage"><label class="fglbl" for="quiz-age">{{gq.label}}</label><span class="fagev num" aria-hidden="true">{{gq.valLabel}}</span></div><input id="quiz-age" class="frange" type="range" min="{{gq.min}}" max="{{gq.max}}" step="1" value="{{gq.value}}" aria-valuetext="{{gq.valText}}" onInput="{{gq.onInput}}"><div class="fscale" aria-hidden="true"><span>18</span><span>Slide to your age</span><span>100</span></div></sc-if>
+<div class="fopts">
+<sc-for list="{{gq.opts}}" as="o">
+<button class="fopt" type="button" aria-pressed="{{o.pressed}}" onClick="{{o.pick}}"><span class="fck" aria-hidden="true"></span>{{o.label}}</button>
+</sc-for>
+</div>
+</div>
+</sc-for>
+<sc-if value="{{quizNeedPick}}"><p role="alert" style="margin: 0; font-size: 14px; color: #A3321A; font-weight: 500">Answer each question to continue.</p></sc-if>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 4px">
+<sc-if value="{{quizCanBack}}"><button class="fback" type="button" onClick="{{quizBack}}">Back</button></sc-if>
+<span></span>
+<button class="fnext" type="button" onClick="{{quizNext}}">{{quizNextLabel}}</button>
+</div>
+</sc-if>
+<sc-if value="{{quizResult}}">
+<p class="lbl" style="margin: 0; font-size: 12px; color: #4A524C">Your focus</p>
+<h3 class="serif" style="margin: 0; font-size: 34px; line-height: 1.08">Get your starter report</h3>
+<div style="display: flex; flex-wrap: wrap; gap: 6px">
+<sc-for list="{{quizPicks}}" as="pk"><span class="fpick">{{pk.label}}</span></sc-for>
+</div>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A413D">Join free and we'll email you a report based on your answers: simple nutrition, sleep and dental hygiene habits, and the health tests that may be worth asking about.</p>
+<form onSubmit="{{submitQuiz}}" aria-label="Join NIA CLUB and get your starter report" style="display: flex; flex-direction: column; gap: 10px">
+<label><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">First name</span><input type="text" name="first_name" autocomplete="given-name" placeholder="First name" required=""></label>
+<label><span style="position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0)">Email</span><input type="email" name="email" autocomplete="email" placeholder="Email" required=""></label>
+<label class="fconsent"><input type="checkbox" name="consent" value="Agreed to NIA using these answers to prepare a report" required=""><span>I'm happy for NIA to use my answers to prepare my report. See our <a href="#privacy">privacy note</a>.</span></label>
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
+<button type="submit" class="fnext" style="width: 100%">{{quizJoinLabel}}</button>
+</form>
+<sc-if value="{{hasFormError}}"><p role="alert" style="margin: 0; font-size: 14px; color: #A3321A; font-weight: 500">{{formError}}</p></sc-if>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap">
+<button class="fback" type="button" onClick="{{quizRestart}}">Change my answers</button>
+<span style="font-size: 13px; color: #4A524C">General guidance, not medical advice.</span>
+</div>
+</sc-if>
+<sc-if value="{{quizSent}}">
+<span aria-hidden="true" style="width: 48px; height: 48px; border-radius: 50%; background: #DCEEDF; display: flex; align-items: center; justify-content: center"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1D5A3C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"></path></svg></span>
+<h3 class="serif" style="margin: 0; font-size: 34px; line-height: 1.08">You're in.</h3>
+<p style="margin: 0; font-size: 16px; line-height: 1.55; color: #3A413D">Welcome to NIA as a founding member. We'll put your starter report together and email it to you.</p>
+<button class="fback" type="button" onClick="{{quizRestart}}" style="align-self: flex-start">Start again</button>
+</sc-if>
+</div>
 </div>
 </div>
 </section>
@@ -389,7 +488,7 @@ button{font:inherit;cursor:pointer}
 <sc-for list="{{glossCards}}" as="g">
 <article class="gcard">
 <div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span class="lbl" style="font-size: 11px; color: #4A524C">{{g.topic}}</span><span style="{{g.pill}}">{{g.grade}}</span></div>
-<h3 style="margin: 6px 0 0; font-size: 24px; font-weight: 400; letter-spacing: -0.015em; line-height: 1.15">{{g.term}}</h3>
+<h4 style="margin: 6px 0 0; font-size: 24px; font-weight: 400; letter-spacing: -0.015em; line-height: 1.15">{{g.term}}</h4>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #1C2321">{{g.def}}</p>
 <p style="margin: auto 0 0; padding-top: 12px; border-top: 1px solid #ECEAE3; font-size: 14px; line-height: 1.5; color: #4A524C"><span style="font-weight: 500; color: #1C2321">Good to know: </span>{{g.note}}</p>
 </article>
@@ -457,6 +556,7 @@ button{font:inherit;cursor:pointer}
 <div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px">
 <p class="lbl" style="margin: 0; font-size: 12px; color: #8FA096">Explore</p>
 <a href="#companion" style="color: #FFFFFF; text-decoration: none">Meet NIA</a>
+<a href="#finder" style="color: #FFFFFF; text-decoration: none">Find your focus</a>
 <a href="#points" style="color: #FFFFFF; text-decoration: none">Earn points</a>
 <a href="#glossary" style="color: #FFFFFF; text-decoration: none">Longevity glossary</a>
 <a href="#benefits" style="color: #FFFFFF; text-decoration: none">Founding members</a>
@@ -693,10 +793,58 @@ class Component extends DCLogic {
     };
     var signups = Math.max(0, Math.min(3000, Number(this.props.signups || 0)));
     var step = s.step || 'form';
+    var qz = s.quiz || { q: 0, health: '', improve: [], explore: [] };
+    var QZ = [
+      { title: 'A little about you', hint: 'This helps us tailor your report.', groups: [
+        { key: 'age', label: 'Your age', slider: true, min: 18, max: 100 },
+        { key: 'sex', label: 'Your sex', opts: ['Female', 'Male', 'Prefer not to say'] },
+        { key: 'health', label: 'How do you feel about your health right now?', opts: ['Great, and I want to keep it that way', 'Good, with room to improve', 'Tired or run down a lot', 'Working through a health issue', 'I’d rather not say'] } ] },
+      { title: 'What would you most like to improve?', hint: 'Choose up to three.', groups: [
+        { key: 'improve', multi: true, max: 3, label: '', opts: ['Sleep', 'Energy', 'Stress and mood', 'Skin', 'Strength and fitness', 'Recovery', 'Gut and nutrition', 'Teeth and gums'] } ] },
+      { title: 'What would you like to explore or learn more about?', hint: 'Choose as many as you like.', groups: [
+        { key: 'explore', multi: true, label: '', opts: ['Sauna and infrared', 'Cold water', 'Red light therapy', 'Health tests and check-ups', 'Nutrition', 'Skin clinics', 'Breathwork and meditation', 'Oral health'] } ] }
+    ];
+    var qi = qz.q || 0;
+    var qcur = QZ[Math.min(qi, 2)];
+    var setQ = function (patch) { self.setState({ quiz: Object.assign({}, qz, patch), formError: '' }); };
+    var qAnswered = function (k) { var a = qz[k]; return Array.isArray(a) ? a.length > 0 : !!a; };
+    var qStepDone = function () { return qcur.groups.every(function (g) { return qAnswered(g.key); }); };
+    var quizGroups = qcur.groups.map(function (g) {
+      if (g.slider) {
+        return { label: g.label, hasLabel: !!g.label, aria: g.label, isSlider: true, isChoice: false, opts: [], min: String(g.min), max: String(g.max),
+          value: String(qz[g.key] || 40), valLabel: qz[g.key] ? String(qz[g.key]) : '–', valText: qz[g.key] ? qz[g.key] + ' years old' : 'Not set yet',
+          onInput: function (e) { var v = parseInt(e && e.target ? e.target.value : '', 10); if (!isNaN(v)) { var p = { need: false }; p[g.key] = v; setQ(p); } } };
+      }
+      return { label: g.label, hasLabel: !!g.label, aria: g.label || qcur.title, isSlider: false, isChoice: true, opts: g.opts.map(function (o) {
+        var a = qz[g.key];
+        var on = Array.isArray(a) ? a.indexOf(o) >= 0 : a === o;
+        return { label: o, pressed: on ? 'true' : 'false', pick: function () {
+          var p = { need: false };
+          if (!g.multi) { p[g.key] = o; }
+          else {
+            var arr = (qz[g.key] || []).slice(); var i = arr.indexOf(o);
+            if (i >= 0) { arr.splice(i, 1); } else { if (g.max && arr.length >= g.max) { arr.shift(); } arr.push(o); }
+            p[g.key] = arr;
+          }
+          setQ(p);
+        } };
+      }) };
+    });
+    var qBar = function (n) { return 'flex: 1; height: 4px; border-radius: 2px; background: ' + (qi >= n ? '#1C2321' : '#ECEAE3') + ';'; };
 
     return {
       boardCards: boardCards, gradeStyle: {}, glossTopics: glossTopics, glossGrades: glossGrades, glossResult: glossResult, glossEmpty: gShown === 0, glossFiltered: !!gq || gg !== 'all' || gc !== 'all',
       glossCards: glossCards,
+      quizAsking: !qz.sent && qi < 3, quizResult: !qz.sent && qi >= 3, quizSent: !!qz.sent,
+      quizStepLabel: 'Step ' + (Math.min(qi, 2) + 1) + ' of 3', quizQuestion: qcur.title, quizHint: qcur.hint, quizGroups: quizGroups,
+      quizNeedPick: !!qz.need, quizCanBack: qi > 0, quizBar1: qBar(0), quizBar2: qBar(1), quizBar3: qBar(2),
+      quizNextLabel: qi === 2 ? 'See my focus' : 'Next',
+      quizJoinLabel: s.sending ? 'Joining…' : 'Join free, get my report',
+      quizPicks: [].concat(qz.improve || [], qz.explore || []).map(function (l) { return { label: l }; }),
+      quizNext: function () { if (!qStepDone()) { setQ({ need: true }); return; } setQ({ q: qi + 1, need: false }); },
+      quizBack: function () { setQ({ q: Math.max(0, qi - 1), need: false }); },
+      quizRestart: function () { self.setState({ quiz: { q: 0, health: '', improve: [], explore: [] }, formError: '' }); },
+      submitQuiz: function (e) { sendForm(e, { subject: 'New NIA founding member + report request', form: 'Find your focus questionnaire', age: qz.age ? String(qz.age) : '', sex: qz.sex || '', health_now: qz.health || '', wants_to_improve: (qz.improve || []).join(', '), wants_to_explore: (qz.explore || []).join(', '), wants_report: 'Yes' }, function () { self.setState({ quiz: Object.assign({}, qz, { sent: true }), formError: '' }); }); },
       glossSearch: function (e) { var v = (e && e.target && typeof e.target.value === 'string') ? e.target.value : ''; glossTrackStart(); self.setState({ glossQ: v }); },
       glossPrev: function () { try { var t = document.getElementById('gloss-track'); if (t) { t.scrollBy({ left: -334, behavior: 'smooth' }); } } catch (err) {} },
       glossNext: function () { try { var t = document.getElementById('gloss-track'); if (t) { t.scrollBy({ left: 334, behavior: 'smooth' }); } } catch (err) {} },
