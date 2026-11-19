@@ -65,6 +65,24 @@ button{font:inherit;cursor:pointer}
 .dotrun{transform-box:view-box;transform-origin:500px 500px;animation:spin 46s linear infinite}
 .board{scrollbar-width:none;cursor:grab;user-select:none;-webkit-user-select:none}
 .board::-webkit-scrollbar{display:none}
+.mbar,.mjoin{display:none}
+@media (max-width:760px){
+.mbar{display:flex;position:fixed;left:12px;right:12px;top:10px;z-index:60;align-items:center;justify-content:space-between;gap:12px;padding:7px 7px 7px 10px;border-radius:22px;background:rgba(14,30,26,0.72);-webkit-backdrop-filter:blur(18px) saturate(140%);backdrop-filter:blur(18px) saturate(140%);border:1px solid rgba(255,255,255,0.14);box-shadow:0 14px 32px -18px rgba(0,0,0,0.6);transform:translateY(-140%);opacity:0;visibility:hidden;transition:transform .45s cubic-bezier(0.16,1,0.3,1),opacity .3s ease,visibility 0s linear .45s}
+.mbar.on{transform:none;opacity:1;visibility:visible;transition-delay:0s}
+.mbar-brand{display:flex;align-items:center;gap:12px;min-height:44px;color:#FFFFFF;text-decoration:none}
+.mbar-cta{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;white-space:nowrap;border-radius:16px;border:1px solid rgba(255,255,255,0.38);color:#FFFFFF;text-decoration:none;font-size:16px;font-weight:500}
+.mjoin{display:block;position:fixed;left:0;right:0;bottom:0;z-index:60;padding:12px 16px calc(14px + env(safe-area-inset-bottom));background:rgba(247,246,242,0.42);-webkit-backdrop-filter:blur(16px) saturate(150%);backdrop-filter:blur(16px) saturate(150%);border-top:1px solid rgba(255,255,255,0.6);transform:translateY(110%);opacity:0;visibility:hidden;transition:transform .45s cubic-bezier(0.16,1,0.3,1),opacity .3s ease,visibility 0s linear .45s}
+.mjoin.on{transform:none;opacity:1;visibility:visible;transition-delay:0s}
+.mjoin-btn{display:flex;align-items:center;justify-content:center;min-height:54px;border-radius:999px;background:#B8410E;color:#FFFFFF;text-decoration:none;font-size:17px;font-weight:500;box-shadow:0 12px 24px -14px rgba(122,40,8,0.7)}
+}
+@media (max-width:760px) and (prefers-reduced-motion:reduce){.mbar,.mjoin{transition:opacity .2s ease,visibility 0s linear .2s;transform:none}}
+.fpetal-wrap{position:relative;align-self:flex-start;display:flex;align-items:center;justify-content:center;width:200px;height:200px;margin:-60px 0 -60px -54px}
+.fpetals{position:absolute;inset:0;width:200px;height:200px;opacity:0.3;pointer-events:none;animation:fpspin 100s linear infinite}
+.fpetals g{transform-box:fill-box;transform-origin:center;animation:fpbreath 9s ease-in-out infinite}
+@keyframes fpspin{to{transform:rotate(360deg)}}
+@keyframes fpbreath{50%{transform:scale(1.07)}}
+@media (prefers-reduced-motion:reduce){.fpetals,.fpetals g{animation:none}}
+@media (max-width:760px){#nia-board>div{zoom:0.66}}
 .flip{position:absolute;width:200px;height:260px;border:0;padding:0;background:transparent;perspective:1200px;border-radius:22px;color:inherit}
 .flin{position:absolute;inset:0;display:block;transform-style:preserve-3d;transition:transform 700ms cubic-bezier(0.16,1,0.3,1)}
 .flip[aria-pressed="true"] .flin{transform:rotateY(180deg)}
@@ -73,6 +91,17 @@ button{font:inherit;cursor:pointer}
 .flip:focus-visible{outline:3px solid #FFFFFF;outline-offset:4px}
 .gtopics{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .gtopics::-webkit-scrollbar{display:none}
+.gcard{position:relative}
+.gpill,.gevwrap,.glegend{display:none !important}
+.ginfo{width:36px;height:36px;margin:-8px -10px -8px -2px;border:0;border-radius:50%;background:transparent;color:#4A524C;display:inline-flex;align-items:center;justify-content:center;padding:0;cursor:pointer}
+.ginfo:hover,.ginfo[aria-expanded="true"]{background:#EEF2EC;color:#1C2321}
+.gsrc{position:absolute;left:10px;right:10px;bottom:10px;top:56px;background:#16201B;color:#FFFFFF;border-radius:16px;padding:12px 16px 14px;box-sizing:border-box;overflow-y:auto;opacity:0;visibility:hidden;transform:translateY(6px);transition:opacity .18s ease,transform .18s ease,visibility 0s linear .3s;z-index:2}
+.gsrc.open,.gsrc:hover,.gcard:has(.ginfo:hover) .gsrc{opacity:1;visibility:visible;transform:none;transition-delay:0s}
+.gsrc-h{display:flex;justify-content:space-between;align-items:center;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.78)}
+.gsrc-x{width:36px;height:36px;margin:-6px -10px -6px 0;border:0;background:transparent;color:#FFFFFF;border-radius:50%;padding:0;display:inline-flex;align-items:center;justify-content:center;cursor:pointer}
+.gsrc ul{margin:8px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.gsrc a{color:#FFFFFF;font-size:14px;line-height:1.4;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,0.5)}
+.gsrc p{margin:12px 0 0;font-size:12px;line-height:1.45;color:rgba(255,255,255,0.72)}
 .gtop{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 16px;border:0;border-radius:999px;background:#ECEAE3;color:#1C2321;font-size:15px;font-weight:500}
 .gtop:hover{background:#E2DFD6}
 .gtop[aria-pressed="true"]{background:#1C2321;color:#FFFFFF}
@@ -201,7 +230,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 </svg>
 <div class="herotop" style="position: relative; padding: 120px 32px 56px; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 28px">
 <h1 class="d h1" style="margin: 0; font-size: 88px; max-width: 11ch; color: #4A524C">Get rewarded for your longevity routine</h1>
-<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #1C2321; max-width: 48ch">One membership across longevity products and services. <br>Get the member price on your first three visits. Every visit earns points to spend across the network.</p>
+<p style="margin: 0; font-size: 20px; line-height: 1.55; color: #1C2321; max-width: 48ch">One membership across longevity products and services. <br>Get the member price on your first three visits to each place. Every visit earns points to spend across the network.</p>
 
 <sc-if value="{{stepForm}}">
 <form onSubmit="{{submitJoin}}" aria-label="Join NIA CLUB" style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; width: 100%; max-width: 640px">
@@ -325,7 +354,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <h2 class="d h2" style="margin: 0; font-size: 72px">Long-term rhythm, not overnight results</h2>
 <p style="margin: 0; font-size: 28px; line-height: 1.25; font-weight: 400; letter-spacing: -0.015em; color: #4A524C">Start and sustain your routine</p>
 </div>
-<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #4A524C; max-width: 46ch">There's so much out there, and it's hard to know what's right for you. Tell NIA what you want to try and when you're free, and it finds places near you with open slots, then books them at the member price.</p>
+<p style="margin: 0; font-size: 19px; line-height: 1.6; color: #4A524C; max-width: 46ch">Meet NIA, your longevity companion. There's so much out there, and it's hard to know what's right for you. Tell NIA what you want to try and when you're free, and it finds places near you with open slots, then books them at the member price.</p>
 </div>
 <div class="phonewrap" style="flex: 1 1 460px; position: relative; aspect-ratio: 1 / 1.05; border-radius: 28px; overflow: hidden; background: #E6ECE8; display: flex; align-items: center; justify-content: center">
 <img src="images/meditate.jpg" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover">
@@ -419,7 +448,7 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <div id="nia-board" class="board" style="position: absolute; inset: 0; overflow-x: auto; overflow-y: hidden">
 <div style="position: relative; width: 5400px; height: 3600px; background-image: linear-gradient(rgba(255,255,255,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.08) 1px, transparent 1px); background-size: 600px 600px">
 <sc-for list="{{boardCards}}" as="bc">
-<button class="flip" type="button" onClick="{{bc.flip}}" aria-pressed="{{bc.pressed}}" aria-label="{{bc.aria}}" aria-hidden="{{bc.hidden}}" tabindex="{{bc.tab}}" style="{{bc.pos}}">
+<button class="flip" type="button" data-i="{{bc.idx}}" onClick="{{bc.flip}}" aria-pressed="{{bc.pressed}}" aria-label="{{bc.aria}}" aria-hidden="{{bc.hidden}}" tabindex="{{bc.tab}}" style="{{bc.pos}}">
 <span class="flin">
 <span class="ff" style="{{bc.front}}">
 <sc-if value="{{bc.hasPhoto}}"><img src="{{bc.photo}}" alt="" loading="lazy" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover"><span aria-hidden="true" style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(12,16,14,0.45) 0%, rgba(12,16,14,0.08) 42%, rgba(12,16,14,0.6) 100%)"></span></sc-if>
@@ -487,16 +516,17 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <div id="gloss-track" class="track gtrack" role="region" aria-label="Glossary terms" tabindex="0">
 <sc-for list="{{glossCards}}" as="g">
 <article class="gcard">
-<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span class="lbl" style="font-size: 11px; color: #4A524C">{{g.topic}}</span><span style="{{g.pill}}">{{g.grade}}</span></div>
+<div style="display: flex; justify-content: space-between; align-items: center; gap: 12px"><span class="lbl" style="font-size: 11px; color: #4A524C">{{g.topic}}</span><span style="display: inline-flex; align-items: center; gap: 4px"><span class="gpill" style="{{g.pill}}">{{g.grade}}</span><button type="button" class="ginfo" aria-label="{{g.infoAria}}" aria-expanded="{{g.infoOpen}}" aria-controls="{{g.srcId}}" onClick="{{g.toggleInfo}}"><svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 11v5.5"></path><path d="M12 7.6v.01"></path></svg></button></span></div>
 <h4 style="margin: 6px 0 0; font-size: 24px; font-weight: 400; letter-spacing: -0.015em; line-height: 1.15">{{g.term}}</h4>
 <p style="margin: 0; font-size: 15px; line-height: 1.5; color: #1C2321">{{g.def}}</p>
 <p style="margin: auto 0 0; padding-top: 12px; border-top: 1px solid #ECEAE3; font-size: 14px; line-height: 1.5; color: #4A524C"><span style="font-weight: 500; color: #1C2321">Good to know: </span>{{g.note}}</p>
+<div class="gsrc {{g.srcCls}}" id="{{g.srcId}}" role="region" aria-label="{{g.infoAria}}"><div class="gsrc-h"><span>Sources</span><button type="button" class="gsrc-x" aria-label="Close sources" onClick="{{g.closeInfo}}"><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"></path></svg></button></div><ul><sc-for list="{{g.srcs}}" as="r"><li><a href="{{r.u}}" target="_blank" rel="noopener">{{r.t}}</a></li></sc-for></ul><p>The research behind this entry. It isn’t medical advice.</p></div>
 </article>
 </sc-for>
 </div>
 <p class="glegend" style="margin: 0; font-size: 13px; line-height: 1.5; color: #4A524C"><strong style="font-weight: 500; color: #1C2321">Strong</strong> several good trials agree · <strong style="font-weight: 500; color: #1C2321">Moderate</strong> consistent studies, some trials · <strong style="font-weight: 500; color: #1C2321">Early</strong> small or short studies so far · <strong style="font-weight: 500; color: #1C2321">Weak</strong> little controlled evidence</p>
 </div>
-<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #4A524C; max-width: 80ch">For general education, not medical advice. Grades reflect published research as of November 2026 and describe the specific outcome studied, not “slowing ageing”. Talk to your GP before starting anything new, especially if you have a health condition or are pregnant.</p>
+<p style="margin: 0; font-size: 14px; line-height: 1.55; color: #4A524C; max-width: 80ch">For general education, not medical advice. Tap the i on any card to see the research behind it. Entries reflect published research as of November 2026 and describe the specific outcomes studied, not “slowing ageing”. Talk to your GP before starting anything new, especially if you have a health condition or are pregnant.</p>
 </div>
 </section>
 
@@ -545,11 +575,11 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 
 </main>
 
-<footer class="pad" style="background: #16201B; color: #DCE3DE; padding: 80px 40px 40px; margin-top: 120px">
+<footer class="pad" style="background: radial-gradient(55% 70% at 0% 0%, rgba(35,144,96,0.35) 0%, rgba(35,144,96,0) 70%), radial-gradient(55% 70% at 100% 100%, rgba(40,110,190,0.35) 0%, rgba(40,110,190,0) 70%), linear-gradient(125deg, #0F2E1E 0%, #0F2A2C 48%, #0D1E3A 100%); position: relative; overflow: hidden; color: #DCE3DE; padding: 80px 40px 40px; margin-top: 120px">
 <div style="max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 48px">
 <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px 64px">
 <div style="display: flex; flex-direction: column; gap: 16px; max-width: 360px">
-<a href="#top" class="logo" aria-label="NIA home" style="font-size: 32px; color: #FFFFFF"><span class="lm" aria-hidden="true">N<span class="li">I<span class="ld"></span></span>A</span></a>
+<div class="fpetal-wrap"><svg class="fpetals" aria-hidden="true" viewBox="0 0 1000 1000" fill="none" stroke="#FFFFFF" stroke-width="1.2"><g><circle cx="500" cy="500" r="300" vector-effect="non-scaling-stroke"></circle><circle cx="690" cy="500" r="300" vector-effect="non-scaling-stroke"></circle><circle cx="595" cy="664.5" r="300" vector-effect="non-scaling-stroke"></circle><circle cx="405" cy="664.5" r="300" vector-effect="non-scaling-stroke"></circle><circle cx="310" cy="500" r="300" vector-effect="non-scaling-stroke"></circle><circle cx="405" cy="335.5" r="300" vector-effect="non-scaling-stroke"></circle><circle cx="595" cy="335.5" r="300" vector-effect="non-scaling-stroke"></circle></g></svg><a href="#top" class="logo" aria-label="NIA home" style="font-size: 32px; color: #FFFFFF; position: relative; z-index: 1"><span class="lm" aria-hidden="true">N<span class="li">I<span class="ld"></span></span>A</span></a></div>
 <p style="margin: 0; font-size: 15px; line-height: 1.6; color: #AFBDB5">The longevity membership, starting in the Chilterns. Based in Amersham, Buckinghamshire.</p>
 </div>
 <nav aria-label="Footer" style="display: flex; flex-wrap: wrap; gap: 32px 72px">
@@ -564,6 +594,8 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 <div style="display: flex; flex-direction: column; gap: 12px; font-size: 15px">
 <p class="lbl" style="margin: 0; font-size: 12px; color: #8FA096">NIA CLUB</p>
 <a href="#join" style="color: #FFFFFF; text-decoration: none">Join free</a>
+<a href="#top" style="color: #FFFFFF; text-decoration: none">For members</a>
+<a href="partners.html" style="color: #FFFFFF; text-decoration: none">For partners</a>
 <a href="#privacy" style="color: #FFFFFF; text-decoration: none">Privacy</a>
 <a href="mailto:hello@[niaclub.co.uk]" style="color: #FFFFFF; text-decoration: none">hello@[niaclub.co.uk]</a>
 </div>
@@ -577,6 +609,9 @@ label.fconsent{display:flex;flex-direction:row;font-weight:400;gap:10px;align-it
 </div>
 </div>
 </footer>
+
+<div class="mbar {{mbarCls}}"><a href="#top" class="mbar-brand" aria-label="NIA home"><span class="logo" style="font-size: 18px; color: #FFFFFF"><span class="lm" aria-hidden="true">N<span class="li">I<span class="ld"></span></span>A</span></span></a><a href="partners.html" class="mbar-cta">Become a partner</a></div>
+<div class="mjoin {{mjoinCls}}"><a href="#join" class="mjoin-btn">Join free</a></div>
 
 </div>
 </template>
@@ -592,7 +627,9 @@ class Component extends DCLogic {
     var el = document.getElementById('nia-board');
     if (!el) { self._boardEl = null; return; }
     self._boardEl = el;
-    var TW = 1800, TH = 1200;
+    var bz = 1;
+    try { bz = parseFloat(window.getComputedStyle(el.firstElementChild).zoom) || 1; } catch (err) {}
+    var TW = 1800 * bz, TH = 1200 * bz;
     el.scrollLeft = TW * 1.5 - el.clientWidth / 2;
     el.scrollTop = TH * 1.5 - el.clientHeight / 2;
     el.addEventListener('scroll', function () {
@@ -615,6 +652,65 @@ class Component extends DCLogic {
       if (self._moved) { el.scrollLeft = d.l - mx; el.scrollTop = d.t - my; }
     });
     window.addEventListener('pointerup', function () { if (self._drag) { self._drag = null; el.style.cursor = ''; } });
+    self.startBoardLife(el);
+  }
+  initSticky() {
+    var self = this;
+    var root = document.getElementById('top');
+    var onScroll = function (e) {
+      var t = e && e.target;
+      var sc = (!t || t === document || t === document.documentElement || t === document.body || t === window) ? null : t;
+      if (sc && (!sc.contains || !root || !sc.contains(root))) { return; }
+      var y = sc ? sc.scrollTop : (window.scrollY || document.documentElement.scrollTop || 0);
+      var vt = 0, vb = window.innerHeight;
+      if (sc) { var r = sc.getBoundingClientRect(); vt = r.top; vb = r.bottom; }
+      var stick = y > 260;
+      var inF = false; var f = document.getElementById('finder');
+      if (f) { var fr = f.getBoundingClientRect(); inF = fr.top < vb - 120 && fr.bottom > vt + 120; }
+      if (stick !== !!self.state.mStick || inF !== !!self.state.mInFinder) { self.setState({ mStick: stick, mInFinder: inF }); }
+    };
+    document.addEventListener('scroll', onScroll, { capture: true, passive: true });
+  }
+  startBoardLife(el) {
+    var self = this;
+    if (self._lifeOn) { return; }
+    var reduce = false;
+    try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (err) {}
+    if (reduce) { return; }
+    self._lifeOn = true;
+    self._pauseUntil = 0;
+    var pause = function () { self._pauseUntil = Date.now() + 5000; };
+    ['pointerdown', 'touchstart', 'wheel', 'keydown'].forEach(function (t) { el.addEventListener(t, pause, { passive: true }); });
+    var ax = 0, ay = 0, last = 0;
+    var step = function (ts) {
+      if (!el.isConnected) { self._lifeOn = false; return; }
+      var dt = last ? Math.min(ts - last, 64) / 1000 : 0; last = ts;
+      if (!self._drag && Date.now() > self._pauseUntil && !document.hidden) {
+        ax += 16 * dt; ay += 7 * dt;
+        var mx = Math.trunc(ax), my = Math.trunc(ay);
+        if (mx) { el.scrollLeft += mx; ax -= mx; }
+        if (my) { el.scrollTop += my; ay -= my; }
+      }
+      window.requestAnimationFrame(step);
+    };
+    window.requestAnimationFrame(step);
+    var flipOne = function () {
+      if (!el.isConnected) { return; }
+      if (Date.now() > self._pauseUntil && !document.hidden) {
+        var box = el.getBoundingClientRect();
+        var vis = Array.prototype.filter.call(el.querySelectorAll('.flip[data-i]'), function (b) {
+          var r = b.getBoundingClientRect();
+          return r.left > box.left + 8 && r.right < box.right - 8 && r.top > box.top + 8 && r.bottom < box.bottom - 8 && b.getAttribute('aria-pressed') !== 'true';
+        });
+        if (vis.length) {
+          var k = vis[Math.floor(Math.random() * vis.length)].getAttribute('data-i');
+          var m = Object.assign({}, self.state.flips); m[k] = true; self.setState({ flips: m });
+          setTimeout(function () { if (Date.now() < self._pauseUntil) { return; } var m2 = Object.assign({}, self.state.flips); delete m2[k]; self.setState({ flips: m2 }); }, 2600);
+        }
+      }
+      setTimeout(flipOne, 3800);
+    };
+    setTimeout(flipOne, 2200);
   }
   renderVals() {
     var s = this.state || {};
@@ -624,7 +720,7 @@ class Component extends DCLogic {
     var gradeColors = { strong: ['#DCEEDF', '#1D5A3C'], moderate: ['#DCEBF2', '#245E7A'], early: ['#FBEBC8', '#7A4E0E'], weak: ['#F6DDD5', '#8A2F1F'], concept: ['#ECEAE3', '#4A524C'] };
     var gradeLabels = { strong: 'Strong', moderate: 'Moderate', early: 'Early', weak: 'Weak', concept: 'Concept' };
     var pillOf = function (k) { var c = gradeColors[k]; return 'flex: none; background: ' + c[0] + '; color: ' + c[1] + '; border-radius: 999px; padding: 4px 10px; font-size: 13px; font-weight: 500; white-space: nowrap;'; };
-    var glossCats = [['basics', 'Ageing basics'], ['tests', 'Tests'], ['therapies', 'Heat, cold and recovery'], ['movement', 'Movement, food and sleep'], ['supps', 'Supplements'], ['skin', 'Skin']];
+    var glossCats = [['basics', 'Ageing basics'], ['tests', 'Tests'], ['therapies', 'Heat, cold and recovery'], ['movement', 'Movement, food and sleep'], ['food', 'Food and nutrition'], ['dental', 'Teeth and gums'], ['supps', 'Supplements'], ['skin', 'Skin']];
     var glossData = {
       basics: [
         ['Healthspan', 'concept', 'The years you live in good health, free of serious illness. Lifespan is simply how long you live.', 'Most longevity research now aims at healthspan. Be wary of anyone promising to add years to your life.'],
@@ -677,6 +773,17 @@ class Component extends DCLogic {
         ['Collagen', 'weak', 'Powders or drinks made from broken-down animal collagen.', 'Independent, higher-quality trials show no clear benefit for skin.'],
         ['Resveratrol', 'weak', 'A compound from grape skins, once promoted as an anti-ageing molecule.', 'Human trials are small and inconsistent.']
       ],
+      food: [
+        ['Extra virgin olive oil', 'moderate', 'Oil pressed from olives without heat or chemicals, and the main fat in a Mediterranean diet.', 'In a large Spanish trial, a Mediterranean diet with extra olive oil meant fewer heart attacks and strokes. In US studies, people using more than half a tablespoon a day in place of butter or margarine lived longer. That part is an association, not proof.'],
+        ['Colourful eating', 'moderate', 'Eating a wide mix of fruit and vegetables in different colours: greens, reds, oranges, purples. Each colour brings different plant compounds.', 'Large studies link about five portions a day, two fruit and three veg, with the lowest risk of early death. Leafy greens, berries and citrus did best. Fruit juice and potatoes didn’t show the same link.'],
+        ['Dietary fibre', 'moderate', 'The part of plant food your body can’t digest, found in wholegrains, beans, lentils, vegetables, fruit, nuts and seeds.', 'A major Lancet review linked 25–29g a day with less heart disease, type 2 diabetes and bowel cancer. UK advice is 30g a day, and most people eat less.']
+      ],
+      dental: [
+        ['Fluoride toothpaste', 'strong', 'Toothpaste with fluoride, which strengthens enamel against decay. Most adult toothpastes contain 1,000–1,500 ppm, and stronger ones prevent more decay.', 'Brush twice a day for two minutes, then spit but don’t rinse, so the fluoride stays on your teeth.'],
+        ['Cleaning between teeth', 'early', 'Using interdental brushes or floss to clean the gaps a toothbrush can’t reach.', 'Trials suggest it may reduce gum inflammation, with interdental brushes doing a little better than floss. The evidence is low certainty, but the risk is low too.'],
+        ['Electric toothbrush', 'moderate', 'A powered toothbrush with a rotating or vibrating head.', 'A Cochrane review found they remove more plaque and reduce gum inflammation more than manual brushing. How much that matters long term is still unclear.'],
+        ['Gum disease (periodontitis)', 'moderate', 'Long-term inflammation of the gums and the bone that holds teeth in place. Bleeding gums are often the first sign.', 'Severe gum disease is linked with heart disease, separately from other risks. It isn’t yet proven that treating it prevents heart attacks or strokes.']
+      ],
       skin: [
         ['Daily sunscreen', 'strong', 'A broad-spectrum SPF that filters both UVA and UVB light.', 'The best-evidenced way to slow visible skin ageing.'],
         ['Photoageing', 'concept', 'Skin ageing caused by years of sun exposure, rather than by time alone.', 'Fine lines, uneven pigment and rough texture are common signs.'],
@@ -713,7 +820,7 @@ class Component extends DCLogic {
 
     var boardItems = [
       ['Infrared', 'Infrared sauna', 38, 'redface.jpg'],
-      ['Light', 'Red light therapy', 30, '', 'rgba(232,96,60,0.7)', 'rgba(249,220,122,0.75)'],
+      ['Light', 'Red light therapy', 30, 'redlight.jpg'],
       ['Recovery', 'Cold plunge', 18, 'teal.jpg'],
       ['Heat', 'Wood-fired sauna', 25, 'spa.jpg'],
       ['Testing', 'Full blood panel', 120, '', 'rgba(108,202,216,0.7)', 'rgba(143,216,180,0.7)'],
@@ -748,13 +855,14 @@ class Component extends DCLogic {
         cat: it[0], name: it[1], member: '£' + it[2] + ' · first 3 visits', earn: (it[2] * 5) + ' points', cover: (it[2] * 100).toLocaleString('en-GB') + ' points',
         isFree: !!it[6], isPaid: !it[6], detail: it[6] || '',
         hasPhoto: !!it[3], noPhoto: !it[3], photo: it[3] ? 'images/' + it[3] : '',
-        pressed: on ? 'true' : 'false', tab: center ? '0' : '-1', hidden: center ? 'false' : 'true',
+        idx: String(i), pressed: on ? 'true' : 'false', tab: center ? '0' : '-1', hidden: center ? 'false' : 'true',
         aria: (on && it[6]) ? it[1] + ': free for members, from ' + it[6] : on ? it[1] + ': member price £' + it[2] + ' for your first 3 visits, earns ' + (it[2] * 5) + ' points, or pay with ' + (it[2] * 100) + ' points' : it[1] + ', ' + it[0] + '. Show price and points',
         pos: 'left: ' + (tx * 1800 + sl.x) + 'px; top: ' + (ty * 1200 + sl.y) + 'px;',
         front: it[3] ? 'background: #1C2321; color: #FFFFFF; text-shadow: 0 1px 12px rgba(0,0,0,0.3);' : 'background: radial-gradient(80% 70% at 15% 10%, ' + it[4] + ' 0%, rgba(255,255,255,0) 70%), radial-gradient(80% 70% at 90% 95%, ' + it[5] + ' 0%, rgba(255,255,255,0) 70%), #F2F1EC; color: #1C2321;',
         flip: function () { if (self._moved) { self._moved = false; return; } var m = Object.assign({}, self.state.flips); m[i] = !m[i]; self.setState({ flips: m }); }
       });
     }); } }
+    if (typeof document !== 'undefined' && !self._stickyOn) { self._stickyOn = true; setTimeout(function () { try { self.initSticky(); } catch (err) {} }, 0); }
     if ((!self._boardEl || !self._boardEl.isConnected) && !self._boardPending) {
       self._boardPending = true;
       setTimeout(function () { self._boardPending = false; try { self.initBoard(); } catch (err) {} }, 60);
@@ -793,6 +901,15 @@ class Component extends DCLogic {
     };
     var signups = Math.max(0, Math.min(3000, Number(this.props.signups || 0)));
     var step = s.step || 'form';
+    var glossSources = {"Extra virgin olive oil": [{"t": "Estruch et al. (PREDIMED), NEJM 2018", "u": "https://www.nejm.org/doi/full/10.1056/NEJMoa1800389"}, {"t": "Guasch-Ferré et al., JACC 2022 (Harvard summary)", "u": "https://hsph.harvard.edu/news/higher-olive-oil-consumption-linked-with-lower-risk-of-premature-death"}], "Colourful eating": [{"t": "Wang et al., Circulation 2021 (AHA summary)", "u": "https://www.eurekalert.org/news-releases/654654"}, {"t": "Aune et al., Int J Epidemiology 2017", "u": "https://doi.org/10.1093/ije/dyw319"}], "Dietary fibre": [{"t": "Reynolds et al., Lancet 2019", "u": "https://pubmed.ncbi.nlm.nih.gov/30638909/"}], "Fluoride toothpaste": [{"t": "Cochrane review CD007868 (Walsh et al. 2019)", "u": "https://doi.org/10.1002/14651858.CD007868.pub3"}], "Cleaning between teeth": [{"t": "Cochrane review CD012018 (Worthington et al. 2019)", "u": "https://www.cochrane.org/CD012018/ORAL_interdental-cleaning-devices-prevent-and-control-gum-disease-and-tooth-decay"}], "Electric toothbrush": [{"t": "Cochrane review CD002281 (Yaacob et al. 2014)", "u": "https://pubmed.ncbi.nlm.nih.gov/24934383/"}], "Gum disease (periodontitis)": [{"t": "Sanz et al., J Clin Periodontology 2020", "u": "https://doi.org/10.1111/jcpe.13189"}], "Healthspan": [{"t": "AFAR TAME", "u": "https://www.afar.org/research/TAME/"}, {"t": "Aesthetics Journal on ASA ruling", "u": "https://aestheticsjournal.com/news/asa-rules-against-reversing-ageing-clinic-advertising/"}], "Biological age": [{"t": "NutraIngredients on Nature Medicine 2026", "u": "https://www.nutraingredients.com/Article/2026/09/10/epigenetic-biomarkers-show-promise-for-longevitybut-which-clock-moves-which-needle/"}, {"t": "Aesthetics Journal", "u": "https://aestheticsjournal.com/news/asa-rules-against-reversing-ageing-clinic-advertising/"}], "Surrogate marker": [{"t": "NutraIngredients on Nature Medicine 2026", "u": "https://www.nutraingredients.com/Article/2026/09/10/epigenetic-biomarkers-show-promise-for-longevitybut-which-clock-moves-which-needle/"}], "NAD+": [{"t": "ASA Kind Patches ruling", "u": "https://www.asa.org.uk/rulings/kind-patches-ltd-a25-1310978-kind-patches-ltd.html"}], "Cellular senescence": [{"t": "Mayo Clinic News Network", "u": "https://newsnetwork.mayoclinic.org/discussion/drugs-that-kill-zombie-cells-may-benefit-some-older-women-but-not-all-mayo-clinic-study-finds/"}], "Autophagy": [{"t": "Shabkhizan et al., Advances in Nutrition 2023", "u": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10509423/"}], "Hallmarks of ageing": [{"t": "López-Otín et al., Cell 2023, PubMed 36599349", "u": "https://pubmed.ncbi.nlm.nih.gov/36599349/"}, {"t": "CNIO", "u": "https://www.cnio.es/en/news/the-spectacular-progress-in-research-into-slowing-down-aging-analyzed-in-cell-by-maria-a-blasco-and-other-leading-researchers-in-the-field/"}], "VO2 max": [{"t": "Mandsager et al. 2018", "u": "https://doi.org/10.1001/jamanetworkopen.2018.3605"}], "Grip strength": [{"t": "Leong et al., Lancet 2015", "u": "https://doi.org/10.1016/S0140-6736(14)62000-6"}], "ApoB": [{"t": "Sniderman et al. 2019", "u": "https://doi.org/10.1001/jamacardio.2019.3780"}, {"t": "NICE NG238", "u": "https://www.nice.org.uk/guidance/ng238"}], "Lp(a)": [{"t": "HEART UK", "u": "https://heartuk.org.uk/genetic-conditions/high-lipoproteina"}], "HbA1c": [{"t": "NHS type 2 diabetes", "u": "https://www.nhs.uk/conditions/type-2-diabetes/"}], "Epigenetic clock": [{"t": "NutraIngredients on Nature Medicine 2026", "u": "https://www.nutraingredients.com/Article/2026/09/10/epigenetic-biomarkers-show-promise-for-longevitybut-which-clock-moves-which-needle/"}, {"t": "Lu et al. 2019", "u": "https://doi.org/10.18632/aging.101684"}, {"t": "Belsky et al. 2022", "u": "https://doi.org/10.7554/eLife.73420"}], "Heart rate variability (HRV)": [{"t": "Hillebrand et al., Europace 2013", "u": "https://doi.org/10.1093/europace/eus341"}], "Glucose monitor (CGM)": [{"t": "University of Gothenburg", "u": "https://www.gu.se/en/news/no-evidence-that-continuous-glucose-monitors-improve-health-in-people-without-diabetes"}, {"t": "UCL", "u": "https://www.ucl.ac.uk/news/2024/jun/use-glucose-monitors-people-not-living-diabetes-needs-more-regulation"}], "Full-body MRI": [{"t": "St Andrews briefing 2026", "u": "https://medicine.st-andrews.ac.uk/centreforevidenceandvalues/wp-content/uploads/sites/89/2026/02/Commercial-imaging-screening-test-briefing-note.pdf"}, {"t": "UK NSC", "u": "https://gov.uk/government/publications/uk-nsc-commercial-screening-test-considerations/nhs-and-commercial-health-screening-tests-important-considerations"}], "Multi-cancer blood test": [{"t": "KCL", "u": "https://www.kcl.ac.uk/news/first-results-from-the-nhs-galleri-trial-presented-at-2026-asco-annual-meeting"}, {"t": "GRAIL via BioSpace", "u": "https://www.biospace.com/press-releases/grail-reports-full-results-from-nhs-galleri-trial-demonstrating-substantial-reduction-in-stage-iv-cancer-diagnoses-at-2026-asco-annual-meeting"}, {"t": "ecancer", "u": "https://ecancer.org/en/news/28371-asco-2026-galleri-early-detection-test-may-shift-timing-of-cancer-detection-reducing-stage-iv-diagnoses"}], "Traditional sauna": [{"t": "EurekAlert", "u": "https://www.eurekalert.org/news-releases/786209"}, {"t": "Laukkanen et al. 2015", "u": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2130724"}], "Infrared sauna": [{"t": "BBB National Programs (US)", "u": "https://bbbprograms.org/media-center/dd/nad-halotherapy-health-claims"}], "Cold plunge": [{"t": "ScienceDaily on Cain et al. 2025", "u": "https://sciencedaily.com/releases/2025/01/250131110704.htm"}, {"t": "RNLI Float to Live", "u": "https://rnli.org/float"}], "Contrast therapy": [{"t": "Bieuzen et al., PLoS One 2013", "u": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0062356"}], "Cryotherapy": [{"t": "CAP: Cryotherapy", "u": "https://www.asa.org.uk/advice-online/health-cryotherapy.html"}, {"t": "Cochrane CD010789", "u": "https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.CD010789.pub2/full"}], "Red light therapy": [{"t": "ASA: Red Light Therapy Ltd", "u": "https://www.asa.org.uk/rulings/red-light-therapy-ltd-a21-1094015-red-light-therapy-ltd.html"}], "Hyperbaric oxygen": [{"t": "CAP: Oxygen therapy", "u": "https://www.asa.org.uk/advice-online/health-oxygen-therapy.html"}, {"t": "CQC scope", "u": "https://cqc.org.uk/guidance-providers/scope-registration/regulated-activities/treatment-disease-disorder-or-injury"}], "Compression boots": [{"t": "Maia et al., Biology of Sport 2024", "u": "https://pubmed.ncbi.nlm.nih.gov/39416507/"}], "Massage and lymphatic drainage": [{"t": "Cochrane review CD003475: manual lymphatic drainage", "u": "https://www.cochrane.org/CD003475/BREASTCA_manual-lymphatic-drainage-lymphedema-following-breast-cancer-treatment"}], "Zone 2 training": [{"t": "GPnotebook / UK CMO", "u": "https://gpnotebook.com/en-GB/pages/cardiovascular-medicine/physical-activity--brief-advice-for-adults-in-primary-care"}, {"t": "UK CMO guidelines", "u": "https://www.gov.uk/government/publications/physical-activity-guidelines-uk-chief-medical-officers-report"}], "Strength training": [{"t": "GPnotebook / UK CMO", "u": "https://gpnotebook.com/en-GB/pages/cardiovascular-medicine/physical-activity--brief-advice-for-adults-in-primary-care"}, {"t": "Momma et al., BJSM 2022", "u": "https://bjsm.bmj.com/content/56/13/755"}], "HIIT": [{"t": "Stensvold et al., BMJ 2020", "u": "https://www.bmj.com/content/371/bmj.m3485"}], "Mediterranean diet": [{"t": "Estruch et al., NEJM 2018", "u": "https://www.nejm.org/doi/full/10.1056/NEJMoa1800389"}, {"t": "NutraIngredients on Nature Medicine 2026", "u": "https://www.nutraingredients.com/Article/2026/09/10/epigenetic-biomarkers-show-promise-for-longevitybut-which-clock-moves-which-needle/"}], "Time-restricted eating": [{"t": "Liu et al., NEJM 2022", "u": "https://www.nejm.org/doi/full/10.1056/NEJMoa2114833"}, {"t": "Lowe et al., JAMA IM 2020", "u": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/2771095"}], "Sleep": [{"t": "Cappuccio et al., Sleep 2010", "u": "https://academic.oup.com/sleep/article/33/5/585/2454478"}, {"t": "Windred et al., Sleep 2024", "u": "https://academic.oup.com/sleep/article/47/1/zsad253/7280269"}], "Breathwork": [{"t": "Fincham et al., Sci Rep 2023", "u": "https://www.nature.com/articles/s41598-022-27247-y"}], "Meditation": [{"t": "Goyal et al., JAMA IM 2014", "u": "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/1809754"}, {"t": "NICE NG222", "u": "https://www.nice.org.uk/guidance/ng222"}], "Vitamin D": [{"t": "NHS vitamin D", "u": "https://www.nhs.uk/conditions/vitamins-and-minerals/vitamin-d/"}, {"t": "VITAL", "u": "https://doi.org/10.1056/NEJMoa1809944"}], "Omega-3": [{"t": "EurekAlert on DO-HEALTH", "u": "https://www.eurekalert.org/news-releases/1072552"}, {"t": "VITAL omega-3", "u": "https://doi.org/10.1056/NEJMoa1811403"}], "Creatine": [{"t": "Chilibeck et al., Open Access J Sports Med 2017", "u": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5679696/"}, {"t": "Devries & Phillips, Med Sci Sports Exerc 2014", "u": "https://pubmed.ncbi.nlm.nih.gov/24576864/"}], "NMN and NR": [{"t": "NutraIngredients, Feb 2026", "u": "https://www.nutraingredients.com/Article/2026/02/02/longevity-ingredients-under-the-eu-regulatory-spotlight/"}, {"t": "ASA Kind Patches", "u": "https://www.asa.org.uk/rulings/kind-patches-ltd-a25-1310978-kind-patches-ltd.html"}, {"t": "Yoshino et al., Science 2021", "u": "https://doi.org/10.1126/science.abe9985"}], "Urolithin A": [{"t": "Lifespan.io", "u": "https://lifespan.io/urolithin-a-affects-muscle-and-mitochondria-in-older-adults/"}, {"t": "Liu et al., JAMA Netw Open 2022", "u": "https://doi.org/10.1001/jamanetworkopen.2021.44279"}], "Collagen": [{"t": "NutraIngredients, Aug 2025", "u": "https://nutraingredients.com/Article/2025/08/26/industry-reacts-to-meta-analysis-concluding-collagen-supplements-show-no-proven-benefit-for-skin-aging"}, {"t": "CAP: Food – skincare", "u": "https://www.asa.org.uk/advice-online/food-skincare.html"}], "Resveratrol": [{"t": "NutraIngredients, Feb 2026", "u": "https://www.nutraingredients.com/Article/2026/02/02/longevity-ingredients-under-the-eu-regulatory-spotlight/"}], "Daily sunscreen": [{"t": "MDedge on Hughes et al. 2013", "u": "https://mdedge.com/familymedicine/article/59024/dermatology/daily-sunscreen-slowed-skin-aging-middle-aged-adults"}], "Photoageing": [{"t": "Hughes et al., Annals of Internal Medicine 2013", "u": "https://pubmed.ncbi.nlm.nih.gov/23732711/"}], "Skin barrier": [{"t": "CAP: Food – skincare", "u": "https://www.asa.org.uk/advice-online/food-skincare.html"}], "Retinol": [{"t": "Mambwe et al., Int J Cosmetic Science 2024", "u": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11788006/"}, {"t": "Tretinoin vs other topicals, Am J Clin Dermatol 2024", "u": "https://pubmed.ncbi.nlm.nih.gov/39348007/"}], "Vitamin C serum": [{"t": "Al-Niaimi & Chiang, J Clin Aesthet Dermatol 2017", "u": "https://pmc.ncbi.nlm.nih.gov/articles/PMC5605218/"}], "LED skin therapy": [{"t": "ASA: Project E Beauty", "u": "https://www.asa.org.uk/rulings/project-e-beauty-llc-a25-1293784-project-e-beauty-llc.html"}], "Microneedling": [{"t": "Clyde & Co", "u": "https://www.clydeco.com/en/insights/2026/05/non-surgical-cosmetic-procedures"}], "Chemical peel": [{"t": "Clyde & Co", "u": "https://www.clydeco.com/en/insights/2026/05/non-surgical-cosmetic-procedures"}], "Laser and IPL": [{"t": "Clyde & Co", "u": "https://www.clydeco.com/en/insights/2026/05/non-surgical-cosmetic-procedures"}]};
+    var glossDecorate = function (list) {
+      var openT = s.gInfo || '';
+      return list.map(function (c, i) {
+        var src = glossSources[c.term] || []; var on = openT === c.term;
+        return Object.assign({}, c, { srcs: src, srcId: 'gs-' + i, srcCls: on ? 'open' : '', infoOpen: on ? 'true' : 'false', infoAria: 'Sources for ' + c.term,
+          toggleInfo: function () { self.setState({ gInfo: on ? '' : c.term }); }, closeInfo: function () { self.setState({ gInfo: '' }); } });
+      });
+    };
     var qz = s.quiz || { q: 0, health: '', improve: [], explore: [] };
     var QZ = [
       { title: 'A little about you', hint: 'This helps us tailor your report.', groups: [
@@ -834,7 +951,8 @@ class Component extends DCLogic {
 
     return {
       boardCards: boardCards, gradeStyle: {}, glossTopics: glossTopics, glossGrades: glossGrades, glossResult: glossResult, glossEmpty: gShown === 0, glossFiltered: !!gq || gg !== 'all' || gc !== 'all',
-      glossCards: glossCards,
+      glossCards: glossDecorate(glossCards),
+      mbarCls: s.mStick ? 'on' : '', mjoinCls: (s.mStick && !s.mInFinder) ? 'on' : '',
       quizAsking: !qz.sent && qi < 3, quizResult: !qz.sent && qi >= 3, quizSent: !!qz.sent,
       quizStepLabel: 'Step ' + (Math.min(qi, 2) + 1) + ' of 3', quizQuestion: qcur.title, quizHint: qcur.hint, quizGroups: quizGroups,
       quizNeedPick: !!qz.need, quizCanBack: qi > 0, quizBar1: qBar(0), quizBar2: qBar(1), quizBar3: qBar(2),
