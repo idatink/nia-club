@@ -23,7 +23,7 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#F7F6F2;color:#1C2321;font-family:"Schibsted Grotesk",system-ui,sans-serif;-webkit-font-smoothing:antialiased;caret-color:#B8410E;accent-color:#B8410E;scrollbar-color:#B9BDB4 #F7F6F2}
 ::selection{background:#B8410E;color:#FFFFFF}
 a{color:#1C2321;text-underline-offset:3px}a:hover{color:#B8410E}
-.d{font-family:Italiana,"Schibsted Grotesk",serif;font-weight:400;letter-spacing:0;line-height:1.0}h1,h2,h3{font-family:Italiana,"Schibsted Grotesk",serif;font-weight:400}
+.d{font-family:Italiana,"Schibsted Grotesk",serif;font-weight:400;letter-spacing:0;line-height:1.0}h1,h2,h3{font-family:Italiana,"Schibsted Grotesk",serif;font-weight:400}h1,h2,h3,.serif{-webkit-text-stroke:0.016em currentColor}
 .num{font-variant-numeric:tabular-nums}
 .logo{font-family:Jost,"Schibsted Grotesk",sans-serif;font-weight:300;text-transform:uppercase;text-decoration:none;color:#1C2321;display:inline-flex;align-items:baseline;gap:0.55em;line-height:1}
 .logo .lm{font-size:1em;letter-spacing:0.14em}
@@ -79,8 +79,20 @@ button{font:inherit;cursor:pointer}
 .gtop .cnt{font-size:13px;opacity:0.7}
 .gtrack{padding:4px 2px 20px !important;scroll-padding-left:0 !important;gap:14px !important}
 .gcard{flex:0 0 320px;height:340px;scroll-snap-align:start;box-sizing:border-box;background:#FFFFFF;border:1px solid #ECEAE3;border-radius:22px;padding:22px 22px 20px;display:flex;flex-direction:column;gap:10px;overflow:hidden}
-.gchip{border:1px solid #CFCCC2;background:#FFFFFF;color:#1C2321;border-radius:999px;min-height:44px;padding:6px 16px;font-size:14px;font-weight:500}
-.gchip[aria-pressed="true"]{background:#1C2321;border-color:#1C2321;color:#FFFFFF}
+.gevwrap{display:flex;align-items:center;gap:8px 14px;flex-wrap:wrap;min-width:0;max-width:100%}
+.gevlbl{font-family:Italiana,"Schibsted Grotesk",serif;font-size:22px;line-height:1;color:#1C2321;-webkit-text-stroke:0.016em currentColor}
+.gevid{display:flex;gap:2px;padding:4px;border-radius:999px;background:rgba(28,35,33,0.06);overflow-x:auto;scrollbar-width:none;max-width:100%;box-sizing:border-box}
+.gevid::-webkit-scrollbar{display:none}
+.gchip{flex:none;display:inline-flex;align-items:center;gap:8px;border:0;background:transparent;color:#4A524C;border-radius:999px;min-height:44px;padding:6px 14px;font-size:14px;font-weight:500;transition:background .2s ease,color .2s ease}
+.gchip:hover{color:#1C2321}
+.gchip .gdot{width:8px;height:8px;border-radius:50%;flex:none}
+.gchip[data-g="all"] .gdot{display:none}
+.gchip[data-g="strong"] .gdot{background:#2E8A5C}
+.gchip[data-g="moderate"] .gdot{background:#3C86AD}
+.gchip[data-g="early"] .gdot{background:#D69A2D}
+.gchip[data-g="weak"] .gdot{background:#C9573E}
+.gchip[aria-pressed="true"]{background:#FFFFFF;color:#1C2321;box-shadow:0 4px 12px -6px rgba(28,35,33,0.35)}
+@media (max-width:760px){.gevwrap{width:100%}.gevid{width:100%}.gchip{flex:1 1 auto;justify-content:center;padding:6px 8px;gap:6px;font-size:13px}}
 .gsearch{font:inherit;font-size:16px;width:100%;box-sizing:border-box;min-height:52px;padding:12px 18px 12px 46px;border:1px solid #8F938B;border-radius:999px;background:#FFFFFF;color:#1C2321}
 .benefits-in>div{min-width:0}
 .bcards{margin:0;padding:0;list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;max-width:560px}
@@ -348,11 +360,13 @@ button{font:inherit;cursor:pointer}
 <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#4A524C" stroke-width="1.8" stroke-linecap="round" style="position: absolute; left: 18px; top: 17px"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
 <input id="gloss-q" class="gsearch" type="search" aria-labelledby="gloss-q-label" placeholder="Search, e.g. sauna or cholesterol" autocomplete="off" onInput="{{glossSearch}}">
 </form>
-<div role="group" aria-label="Filter by strength of evidence" style="display: flex; flex-wrap: wrap; align-items: center; gap: 6px">
-<span class="lbl" style="font-size: 12px; color: #4A524C; margin-right: 4px">Evidence</span>
+<div class="gevwrap">
+<span class="gevlbl" aria-hidden="true">Evidence</span>
+<div class="gevid" role="group" aria-label="Filter by strength of evidence">
 <sc-for list="{{glossGrades}}" as="gd">
-<button class="gchip" type="button" onClick="{{gd.pick}}" aria-pressed="{{gd.pressed}}">{{gd.label}}</button>
+<button class="gchip" type="button" data-g="{{gd.key}}" onClick="{{gd.pick}}" aria-pressed="{{gd.pressed}}"><span class="gdot" aria-hidden="true"></span>{{gd.label}}</button>
 </sc-for>
+</div>
 </div>
 </div>
 <div class="gtopics" role="group" aria-label="Topics">
@@ -399,7 +413,6 @@ button{font:inherit;cursor:pointer}
 <li class="bcard"><span class="bicon" aria-hidden="true" style="background: #FBEBC8"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C2321" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"></path><circle cx="7.5" cy="7.5" r="1.5"></circle></svg></span><strong>Member prices</strong><span class="bt">Lower prices on your first three visits to every new place.</span></li>
 <li class="bcard"><span class="bicon" aria-hidden="true" style="background: #DCEBF2"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C2321" stroke-width="1.4"><circle cx="12" cy="9" r="5"></circle><circle cx="9" cy="14" r="5"></circle><circle cx="15" cy="14" r="5"></circle></svg></span><strong>Points on every visit</strong><span class="bt">Spend them at any partner in the network.</span></li>
 <li class="bcard"><span class="bicon" aria-hidden="true" style="background: #F6DDD5"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C2321" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12v9H4v-9M2 7h20v5H2zM12 21V7M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path></svg></span><strong>Free samples and tasters</strong><span class="bt">Try something new before you book.</span></li>
-<li class="bcard"><span class="bicon" aria-hidden="true" style="background: #ECE7DD"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1C2321" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"></path><circle cx="12" cy="9.5" r="2.5"></circle></svg></span><strong>A say in what comes first</strong><span class="bt">Tell us where you go, and we'll approach those places first.</span></li>
 </ul>
 </div>
 <div style="flex: 1 1 380px; max-width: 480px; background: #FFFFFF; border-radius: 28px; padding: 36px 32px; box-sizing: border-box; display: flex; flex-direction: column; gap: 18px; box-shadow: 0 30px 60px -40px rgba(28,35,33,0.45)">
@@ -589,7 +602,7 @@ class Component extends DCLogic {
       return { label: c[1], count: c[2], pressed: gc === c[0] ? 'true' : 'false', pick: function () { clearSearchBox(); self.setState({ glossCat: c[0], glossQ: '' }); } };
     });
     var glossGrades = [['all', 'All'], ['strong', 'Strong'], ['moderate', 'Moderate'], ['early', 'Early'], ['weak', 'Weak']].map(function (d) {
-      return { label: d[1], pressed: gg === d[0] ? 'true' : 'false', pick: function () { glossTrackStart(); self.setState({ glossGrade: d[0] }); } };
+      return { key: d[0], label: d[1], pressed: gg === d[0] ? 'true' : 'false', pick: function () { glossTrackStart(); self.setState({ glossGrade: d[0] }); } };
     });
     var glossCards = [];
     glossCats.filter(function (c) { return gc === 'all' || gc === c[0]; }).forEach(function (c) {
